@@ -1,0 +1,12 @@
+<form action="." method="POST">
+  {% csrf_token %}
+  {{product_form.as_p}}
+  {{coupon_form.as_p}}
+  <input type="submit" value="create">
+</form>
+
+{% if generated_url %}
+<h3>{{generated_url}}</h3>
+<a href="{{ generated_url }}">Detail</a>
+{% endif %}
+  
