@@ -1,11 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.utils.text import slugify
 from django.urls import reverse
 from django.views.generic import DetailView
 
 from pprint import pprint
-
+from time import time
 from .models import Product
 from .forms import ProductCreateForm, CouponCreateForm
 from .scripts.ScrapeAmazon import AmazonScraper
@@ -13,7 +13,7 @@ from .scripts.helper import *
 # Create your views here.
 
 def product_home_view(request):
-	return HttpResponse('<h1>Home</h1>')
+	return HttpResponse('<h1>Home</h1><a href="create/">Create</a>')
 
 def product_create_view(request):
 	product_form = ProductCreateForm(request.POST or None)
@@ -52,9 +52,16 @@ def product_create_view(request):
 	return render(request, 'product_create.html', context)
 
 def product_details_view(request, slug):
-	return render(request, 'product_details.html', {})
+	obj = get_object_or_404(Product, slug=slug)
+	print(obj.coupon.end_time - time())
+	context = {
+		'object': obj,
+		'seconds': obj.coupon.end_time - time(),
+		'newPrice': calcPriceAfterSale(obj.coupon.salepercent, obj.price),
+		'desc': obj.description.split('\n'),
+		'mainImg': obj.pictures.all()[0].large_picture
+	}
+	return render(request, 'landing-page.html', context)
 
 
-class ProductDetailView(DetailView):
-	template_name = 'product_details.html'
-	queryset = Product.objects.all()
+

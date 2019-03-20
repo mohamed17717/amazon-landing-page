@@ -20,4 +20,5 @@ class CouponCreateForm(forms.ModelForm):
 			'code',
 			'howlong',
 			'howmany',
+			'salepercent',
 		)

@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Amazon</title>
+
+  <!-- start css  -->
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <!-- end css  -->
+</head>
+<body>
+  
+  <main>
+    <header>
+      <div class="count-down">
+        SALE ENDS IN
+        <div class="time">
+          <input type="hidden" value="{{ seconds }}" id="time-in-seconds">
+          <input type="hidden" value="couponValue" id="coupon-value">
+          <span class="days">00 <span class="sub">days</span></span>
+          <span class="hours">05 <span class="sub">hours</span></span>
+          <span class="minutes">41 <span class="sub">mins</span></span>
+          <span class="seconds">02 <span class="sub">secs</span></span>
+        </div>
+      </div>
+      <button class="claim-coupon btn">Claim Coupon</button>
+    </header>
+    <div class="content">
+      <h2>An Exclusive Offer For You</h2>
+     
+      <div class="stage">
+        <div class="product-imgs">
+          <div class="small-imgs">
+            {% for img in object.pictures.all %}
+            <div><img src="{{img.small_picture}}" data-large="{{img.large_picture}}"  alt=""></div>
+            {% endfor %}
+          </div>
+          <div class="main-img">
+            <img src="{{ mainImg }}" alt="">
+          </div>
+        </div>
+
+        <div class="offer">
+          <div class="header">
+            <a href="{{ object.amazon_url }}  ">
+              {{ object.title }}
+            </a>
+          </div>
+          <div class="content">
+            <div class="was">Was: <span>${{object.price}}</span></div>
+            <div class="now">${{newPrice}}</div>
+            <div class="off">
+              <div>{{ object.coupon.salepercent }}% <span>off</span></div>
+            </div>
+            <button class="claim-coupon btn">Claim My Coupon</button>
+          </div>
+          <div class="footer">
+            <div class="amazon-logo">
+              <img src="{% static 'images/amazon.png' %}" style="max-width:100px;" alt="amazon logo">
+            </div>
+            <div class="coupon-counts">
+              <div class="used"><p>{{ object.coupon.used }}</p> <span>coupons used</span></div>
+              <div class="left"><p>{{ object.coupon.left }}</p> <span>coupons left</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="description">
+        <h2>About the product</h2>
+        <ul>
+          {% for d in desc %}
+          <li>{{ d }}</li>
+          {% endfor %}
+          <li>
+            <a href=" {{object.amazon_url}} ">for more details</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <!-- start js -->
+  <script src="{% static 'js/main.js' %}"></script>
+  <!-- end js -->
+</body>
+</html>

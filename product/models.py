@@ -12,8 +12,9 @@ class Coupon(models.Model):
 	code 				= models.CharField(max_length=50)
 	howlong 		= models.SmallIntegerField() # input in hours
 	howmany 		= models.SmallIntegerField()
+	salepercent = models.SmallIntegerField()
 	## computed
-	start_time 	= models.FloatField(default=time())
+	start_time 	= models.FloatField(blank=True)
 	end_time 		= models.FloatField(blank=True)
 	used 				= models.SmallIntegerField(default=0)
 	left 				= models.SmallIntegerField(blank=True)
@@ -21,6 +22,7 @@ class Coupon(models.Model):
 	def save(self, *args, **kwargs):
 		self.left = self.howmany - self.used
 		if not self.end_time:
+			self.start_time = time()
 			self.howlong *= 60*60 # convert to sceonds
 			self.end_time = self.start_time + self.howlong
 
