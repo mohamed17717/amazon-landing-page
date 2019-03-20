@@ -20,11 +20,11 @@
         SALE ENDS IN
         <div class="time">
           <input type="hidden" value="{{ seconds }}" id="time-in-seconds">
-          <input type="hidden" value="couponValue" id="coupon-value">
-          <span class="days">00 <span class="sub">days</span></span>
-          <span class="hours">05 <span class="sub">hours</span></span>
-          <span class="minutes">41 <span class="sub">mins</span></span>
-          <span class="seconds">02 <span class="sub">secs</span></span>
+          <input type="hidden" value="{{ object.coupon.code }}" id="coupon-value">
+          <span class="days"><span class="num">00</span> <span class="sub">days</span></span>
+          <span class="hours"><span class="num">05</span> <span class="sub">hours</span></span>
+          <span class="minutes"><span class="num">41</span> <span class="sub">mins</span></span>
+          <span class="seconds"><span class="num">02</span> <span class="sub">secs</span></span>
         </div>
       </div>
       <button class="claim-coupon btn">Claim Coupon</button>

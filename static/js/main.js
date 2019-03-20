@@ -1,8 +1,8 @@
 
-let days    = document.querySelector('.days'),
-    hours   = document.querySelector('.hours'),
-    minutes = document.querySelector('.minutes'),
-    seconds = document.querySelector('.seconds');
+let days    = document.querySelector('.days .num'),
+    hours   = document.querySelector('.hours .num'),
+    minutes = document.querySelector('.minutes .num'),
+    seconds = document.querySelector('.seconds .num');
 
 let timeInSeconds = document.querySelector('#time-in-seconds');
 let couponValue = document.querySelector('#coupon-value');
