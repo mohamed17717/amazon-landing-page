@@ -2,8 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.utils.text import slugify
 from django.urls import reverse
+from django.views.generic import DetailView
 
 from pprint import pprint
+
 from .models import Product
 from .forms import ProductCreateForm, CouponCreateForm
 from .scripts.ScrapeAmazon import AmazonScraper
@@ -52,3 +54,7 @@ def product_create_view(request):
 def product_details_view(request, slug):
 	return render(request, 'product_details.html', {})
 
+
+class ProductDetailView(DetailView):
+	template_name = 'product_details.html'
+	queryset = Product.objects.all()

@@ -36,6 +36,7 @@ class AmazonScraper(object):
 			small_images.append(url)
 		
 		images = []
+		ptrn = r'\._[A-Z]{2}40_'
 		[images.append({
 			'small': i, 
 			'large': sub(ptrn, '', i),
