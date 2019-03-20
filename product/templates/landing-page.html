@@ -27,7 +27,7 @@
           <span class="seconds"><span class="num">02</span> <span class="sub">secs</span></span>
         </div>
       </div>
-      <button class="claim-coupon btn">Claim Coupon</button>
+      <button class="claim-coupon btn" data-slug="{{ object.slug }}">Claim Coupon</button>
     </header>
     <div class="content">
       <h2>An Exclusive Offer For You</h2>
@@ -56,7 +56,7 @@
             <div class="off">
               <div>{{ object.coupon.salepercent }}% <span>off</span></div>
             </div>
-            <button class="claim-coupon btn">Claim My Coupon</button>
+            <button class="claim-coupon btn" data-slug="{{ object.slug }}">Claim My Coupon</button>
           </div>
           <div class="footer">
             <div class="amazon-logo">
@@ -85,6 +85,11 @@
   </main>
 
   <!-- start js -->
+  <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  
   <script src="{% static 'js/main.js' %}"></script>
   <!-- end js -->
 </body>

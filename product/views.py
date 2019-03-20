@@ -63,5 +63,10 @@ def product_details_view(request, slug):
 	}
 	return render(request, 'landing-page.html', context)
 
-
+def product_take_coupon_view(request,slug):
+	obj = get_object_or_404(Product, slug=slug)
+	coupon = obj.coupon
+	coupon.used += 1
+	coupon.save()
+	return HttpResponse(coupon.code)
 

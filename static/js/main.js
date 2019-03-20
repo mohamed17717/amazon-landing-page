@@ -27,12 +27,9 @@ function secondsToHours(seconds){
 
 
 // interval to decremant the timer
-console.log('strat');
 let gamesTimer = setInterval(()=>{
   let v = parseInt(timeInSeconds.value);
-  
-  console.log('value', v);
-  
+    
   if(v > 0){
     timeInSeconds.value = v - 1
     let time = secondsToHours(v-1);
@@ -43,9 +40,22 @@ let gamesTimer = setInterval(()=>{
 // event on get coupon btns
 let elms = document.querySelectorAll('.btn');
 elms.forEach(elm=>{
+  let slug = elm.dataset.slug;
   elm.addEventListener('click', (e)=>{
-    alert( couponValue.value )
+    $.ajax({
+      url: `/get-coupon/${slug}/`, 
+      success: function(result){
+        used = document.querySelector('.used p').innerText;
+        left = document.querySelector('.left p').innerText;
+        
+        document.querySelector('.used p').innerText = used++ + 1;
+        document.querySelector('.left p').innerText = left-- - 1;
+        alert(result);
+      }
+    });
   });
+
+
 });
 
 // event on small images
