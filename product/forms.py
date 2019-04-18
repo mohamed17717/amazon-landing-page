@@ -3,6 +3,16 @@ from django import forms
 from .models import Product, Coupon
 
 class ProductCreateForm(forms.ModelForm):
+	amazon_url = forms.CharField(
+		label='',
+		widget=forms.TextInput(attrs={
+			'placeholder': 'Amazon product URL',
+			'type': 'url',
+			'autocomplete': 'off'
+		})
+	)
+
+	# forms.CharField(label='' ,widget=forms.TextInput(attrs={'placeholder': 'Title',}))
 	class Meta:
 		model = Product
 		fields = ('amazon_url',)
@@ -14,6 +24,38 @@ class ProductCreateForm(forms.ModelForm):
 		return amazon_url
 
 class CouponCreateForm(forms.ModelForm):
+	code = forms.CharField(
+		label='',
+		widget=forms.TextInput(attrs={
+			'placeholder': 'Coupon Code',
+			'type': 'text',
+			'autocomplete': 'off'
+		})
+	)
+	howlong = forms.CharField(
+		label='',
+		widget=forms.TextInput(attrs={
+			'placeholder': 'Howlong Coupon remian?',
+			'type': 'number',
+			'autocomplete': 'off'
+		})
+	)
+	howmany = forms.CharField(
+		label='',
+		widget=forms.TextInput(attrs={
+			'placeholder': 'Howmany Coupons?',
+			'type': 'number',
+			'autocomplete': 'off'
+		})
+	)
+	salepercent = forms.CharField(
+		label='',
+		widget=forms.TextInput(attrs={
+			'placeholder': 'Sale %',
+			'type': 'number',
+			'autocomplete': 'off'
+		})
+	)
 	class Meta:
 		model = Coupon
 		fields = (

@@ -41,7 +41,6 @@ def product_create_view(request):
 		product_form = ProductCreateForm()
 		coupon_form = CouponCreateForm()
 
-		context['generated_url'] = product.get_absolute_url()
 		return redirect(product.get_absolute_url())
 
 	context['product_form'] = product_form

@@ -1,12 +1,34 @@
-<form action="." method="POST">
-  {% csrf_token %}
-  {{product_form.as_p}}
-  {{coupon_form.as_p}}
-  <input type="submit" value="create">
-</form>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ceate Amazon Landing Page</title>
 
-{% if generated_url %}
-<h3>{{generated_url}}</h3>
-<a href="{{ generated_url }}">Detail</a>
-{% endif %}
+  <!-- start css -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/product-create-form.css' %}">
+  <!-- end css -->
+</head>
+<body>
   
+  <div id="form">
+    <h1 style="font-size: 1.5em;">Create Product Landing Page</h1>
+
+    <form action="." method="POST">
+      {% csrf_token %}
+      {{product_form.as_p}}
+      {{coupon_form.as_p}}
+      <button type="submit">Create</button>
+    </form>
+
+  </div>
+
+  <!-- start js -->
+  <script src="{% static 'js/product-create-form.js' %}"></script>
+  <!-- end js -->
+</body>
+</html>
+
