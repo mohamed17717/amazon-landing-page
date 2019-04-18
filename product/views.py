@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.utils.text import slugify
 from django.urls import reverse
@@ -40,7 +40,9 @@ def product_create_view(request):
 
 		product_form = ProductCreateForm()
 		coupon_form = CouponCreateForm()
+
 		context['generated_url'] = product.get_absolute_url()
+		return redirect(product.get_absolute_url())
 
 	context['product_form'] = product_form
 	context['coupon_form'] = coupon_form

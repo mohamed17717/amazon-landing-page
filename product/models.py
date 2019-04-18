@@ -5,7 +5,7 @@ from django.core.exceptions import FieldError
 
 from .scripts.ScrapeAmazon import AmazonScraper
 from time import time
-from pprint import pprint
+
 # Create your models here.
 class Coupon(models.Model):
 	## from user
