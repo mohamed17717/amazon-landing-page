@@ -1,6 +1,6 @@
 # Amazon Landnig Page
 
-Magical stick to create __landing page__ for your product coupon on __`Amazon`__ using only the product's link
+Magical stick to create __landing page__ for your product coupon on __Amazon__ using only the product's link
 
 ## Getting Started
 
