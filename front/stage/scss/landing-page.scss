@@ -1,0 +1,264 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #333;
+  width: 100%;
+}
+
+.btn{
+  font-family: inherit;
+  font-size: .875rem;
+  font-weight: 700;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1.125rem;
+  padding: .5rem 1rem;
+  margin: 0;
+  height: auto;
+  border: 1px solid transparent;
+  vertical-align: middle;
+  color: inherit;
+  background-color: transparent;
+
+  color: #fff;
+  background-color: #0074d9;
+  border-radius: 3px;
+  outline: 0;
+
+
+  &:hover {
+    box-shadow: inset 0 0 0 20rem rgba(0,0,0,.0625);
+    text-decoration: none;
+    outline: 0;
+  }
+
+  &:active {
+    outline: 0;
+    box-shadow: inset 0 0 0 20rem rgba(0,0,0,.125), inset 0 3px 4px 0 rgba(0,0,0,.25), 0 0 1px rgba(0,0,0,.125);
+  }
+
+  &:focus {
+    outline: 0;
+    // border-color: rgba(0,0,0,.125);
+    // box-shadow: 0 0 0 3px rgba(0,0,0,.25);
+  }
+}
+
+// start main content
+main{
+  width: 90%;
+  margin: auto;
+  
+  header{
+    background-color: rgb(241, 241, 241);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 12px;
+    margin-bottom: 50px;
+    
+    .count-down{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-transform: uppercase;
+      font-weight: bold;
+
+      .time {
+        margin-left: 15px;
+        > span{
+          text-align: center;
+          display: inline-block;
+          background-color: #af3200;
+          width: 50px;
+          padding: 6px;
+          font-weight: bolder;
+          color: #fff;
+          font-size: 1.9em;
+          border-radius: 5px;
+          .sub{
+            font-size: 0.4em;
+            display: block;
+          }
+        }
+      }
+    }
+
+    .claim-coupon{
+      max-height: 40px;
+    }
+  }
+}
+
+.content{
+  width: 100%;
+
+  h2{
+    text-align: center;
+    font-size: 2em;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+  }
+
+  .stage{
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .product-imgs{
+      position: relative;
+      width: 100%;
+      .small-imgs{
+        width: 7%;
+        max-width: 50px;
+        // min-width: 50px;
+        position: absolute;
+        top: 0;
+        > div{
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          margin-bottom: 10px;
+
+          img{
+            width: 100%;
+          }
+        }
+      }
+
+      .main-img{
+        width: 100%;
+        text-align: center;
+        // min-width: 600px;
+        img{
+          width: 70%;
+          max-width: 550px;
+        }
+      }
+
+
+      > * {
+        display: inline-block;
+      }
+    }
+
+
+    .offer{
+      width: 40%;
+      text-align: center;
+      border: 1px solid #ccc;
+      background-color: rgb(245, 245, 245);
+      max-width: 300px;
+      min-width: 250px;
+      // padding: 12px 12px;
+
+      .header{
+        font-weight: 500;
+        // font-size: 0.9em;
+        margin-bottom: 15px;
+        padding: 12px 12px;
+      }
+
+      .content{
+        margin-bottom: 15px;
+        position: relative;
+        .was{
+          font-size: 0.8em;
+
+          span{
+            text-decoration: line-through;
+          }
+        }
+
+        .now{
+          font-size: 2.1em;
+          margin-bottom: 10px auto;
+          color: #af3200;
+          font-weight: bolder;
+
+        }
+
+        .off{
+          background-color: #af3200;
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          display: flex;
+          color: white;
+          font-weight: bolder;
+          position: absolute;
+          top: -20px;
+          left: -50px;
+          transform: rotate(-15deg);
+          div{
+            width: 90%;
+            height: 90%;
+            border-radius: 50%;
+            font-size: 1.5em;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 2px dashed white;
+            span{
+              font-size: 0.6em;
+            }
+          }
+          >span{
+            display: block;
+          }
+        }
+      }
+
+      .footer{
+        .coupon-counts{
+          margin-top: 15px;
+          border-top: 2px solid #ccc;
+          // padding-top: 15px;
+          display: flex;
+          justify-content: space-around;
+          font-size: 1.7em;
+          .used{
+            border-right: 2px solid #ccc;
+          }
+
+          .left{
+          }
+
+          > div{
+            display: flex;
+            justify-content: space-around;
+            width: 50%;
+            padding: 15px;
+            p{
+              display: inline-block;
+            }
+            span{
+              width: 50px;
+              font-size: 0.45em;
+              justify-self: flex-end;
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  .description{
+    margin-bottom: 50px;
+    ul{
+      max-width: 500px;
+      margin: auto;
+    }
+  }
+}
