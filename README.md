@@ -1,27 +1,27 @@
 # Amazon Landnig Page
 
-Magical stick to create __landing page__ for your product coupon on __Amazon__ using only the product's link
+Magical stick to create **landing page** for your product coupon on **Amazon** using only the product's link
 
 ## Getting Started
 
 ### Prerequisites
 
-- [Python3](https://www.python.org/downloads/).6 or later
+- [Python3.6](https://www.python.org/downloads/) or later
 
 ### Installing
 
 Create virtual environment
 
 ``` bash
-$ pip install --upgrade virtualenv
-$ virtualenv -p python3 env
-$ source env/bin/activate && cd env
+pip install --upgrade virtualenv
+virtualenv -p python3 env
+source env/bin/activate && cd env
 ```
 
 Clone The repository, install dependencies and run.
 
 ``` bash
-(env) $ git clone https://mohamed17717@bitbucket.org/mohamed17717/amazon-landing-page.git src && cd src
+(env) $ git clone https://github.com/mohamed17717/amazon-landing-page.git src && cd src
 (env) $ pip install -r requirements.txt
 (env) $ python manage.py makemigrations
 (env) $ python manage.py migrate
@@ -30,26 +30,21 @@ Clone The repository, install dependencies and run.
 
 ## Built With
 
-- Django -  The web framework used
-
-- SASS - Preprocessor for css
-
-- GULP - Task Runner
+- **Django** -  Web framework
+- **Requests / Beautiful Soup** - Scraping tools
+- **SASS** - Preprocessor for css
+- **GULP** - Task Runner
 
 ## Features
 
-- User don't need an account to start
+- User doesn't need an account to start
 
-- User determine coupon's code, sele percent, life long and howmany
+- User determine coupon's code, sale percent, life long and howmany
 
 - Scrape and extract wanted data by only the product's link
 
-- Timer for the coupon life
-
-- Counter for remaining and used coupons
-
-- All images for the product that are on amazon page
-
-- Old and new price
-
-- Nice Simple Desgin
+- Simple Desgin contain :
+  - All images for the product that are on amazon page
+  - Timer for the coupon life
+  - Counter for remaining and used coupons
+  - Old and new price
